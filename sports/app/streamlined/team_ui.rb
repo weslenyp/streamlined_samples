@@ -12,5 +12,6 @@ class TeamUI < Streamlined::UI
                 :city,
                 :sport, { :create_only => true, :enumeration => Team::Sport::SPORTS },
                 :coach,
+                :players,
                 :personnel
 end

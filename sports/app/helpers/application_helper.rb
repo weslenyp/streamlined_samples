@@ -3,7 +3,8 @@ module ApplicationHelper
   def streamlined_top_menus
     [
       ["Teams", { :controller => "teams", :action => "index" }],
-      ["Coaches", { :controller => "coaches", :action => "index" }]
+      ["Coaches", { :controller => "coaches", :action => "index" }],
+      ["Players", { :controller => "players", :action => "index" }]
     ]
   end
 end
