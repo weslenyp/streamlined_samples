@@ -2,7 +2,7 @@
 
 Streamlined is a plugin for Ruby on Rails that provides an instant, production-ready UI for your ActiveRecord models.
 
-To install and start this sample application, open config/database.yml and modify the usernames and passwords as necessary for your local instance of MySQL. (You don't need to create the databases at this time.) Next, run:
+To install and start this sample application, open config/database.yml and modify the usernames and passwords as necessary for your local instance of MySQL. (You don't need to create the databases.) Next, run:
 
   rake app:setup
   script/server
