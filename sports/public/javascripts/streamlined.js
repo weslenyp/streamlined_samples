@@ -78,22 +78,23 @@ Streamlined.SortSelector = {
   initialize: function() {
     $$('.' + this.selectorClass).each((function(item) {
       text = item.innerHTML;
+			col = item.getAttribute('col');
       item.innerHTML = "";
-      item.appendChild(this.makeLink(text));
+      item.appendChild(this.makeLink(text, col));
     }).bind(this));
   },
-  makeLink: function(text) {
+  makeLink: function(text, col) {
     var s = document.createElement("a");
     s.href = "javascript:void%200";
     s.onclick = (function() {
-      this.updateForm(text.stripTags());
+      this.updateForm(col);
     }).bind(this);
     s.innerHTML = text;
     return s;
   },
-  updateForm: function(text) {
+  updateForm: function(col) {
     var column = this.sortColumn();
-    column.value = text
+    column.value = col
     var order = this.sortOrder();
     order.value = (order.value == 'ASC' ? 'DESC' : 'ASC')
   }
@@ -116,9 +117,19 @@ Streamlined.Menu = {
 		}
   }
 };
+Streamlined.Toggler = {
+  initialize: function() {
+    $$(".sl_toggler").each((function(el) {
+	    Event.observe(el, "mousedown", (function() {
+        Element.toggle(el.href.replace(/.*#/,""))
+	    }).bind(this));
+    }).bind(this));
+  }
+}
 Event.observe(window, "load", function() {
   Streamlined.SortSelector.initialize();
   Streamlined.Menu.initialize();
+  Streamlined.Toggler.initialize();
   Streamlined.FilterWatcher.initialize();
   Streamlined.Popup.initialize.bind(Streamlined.Popup)();
   if ($('spinner')) {
@@ -156,7 +167,7 @@ Streamlined.Windows = {
 	  	win2.show();		
 	},
 	
-	open_local_window: function(title_prefix, content, model) {
+	open_local_window: function(title_prefix, content, model, callback) {
 	    id= "show_win_" + model;
 	    if($(id)) {
 	        return;
@@ -170,17 +181,18 @@ Streamlined.Windows = {
 		});
 		win2.getContent().innerHTML = content;
 		win2.setDestroyOnClose();
+		if (callback != null) Windows.addObserver( { onDestroy: function(eventName, win){ callback(); } } );
 		win2.show();
 	},
 	
-	open_local_window_from_url: function(title_prefix, url, model) {
+	open_local_window_from_url: function(title_prefix, url, model, callback) {
 	        if (model == null) {
 	            model = "new"
 	        }
 	        new Ajax.Request(url, {
 			method: "get", 
 			onComplete: function(request) {
-			        Streamlined.Windows.open_local_window(title_prefix, request.responseText, model);
+			        Streamlined.Windows.open_local_window(title_prefix, request.responseText, model, callback);
 			}
 		});
 	}
@@ -283,6 +295,15 @@ Streamlined.Enumerations = {
 		})
 		link.innerHTML = "Edit";
 		link.onclick = new Function("Streamlined.Enumerations.open_enumeration('" + id + "', this, '" + url + "')");
+	}
+}
+
+Streamlined.QuickAdd = {
+	open: function(url) {
+		Streamlined.Windows.open_local_window_from_url('', url, 'Quick Add');
+	},
+	close: function() {
+		Windows.close('show_win_Quick Add');
 	}
 }
 

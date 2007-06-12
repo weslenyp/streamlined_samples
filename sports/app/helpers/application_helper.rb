@@ -7,4 +7,5 @@ module ApplicationHelper
       ["Players", { :controller => "players", :action => "index" }]
     ]
   end
+  
 end
