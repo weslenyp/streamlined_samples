@@ -131,6 +131,7 @@ Event.observe(window, "load", function() {
   Streamlined.Menu.initialize();
   Streamlined.Toggler.initialize();
   Streamlined.FilterWatcher.initialize();
+  Streamlined.QuickAdd.initialize();
   Streamlined.Popup.initialize.bind(Streamlined.Popup)();
   if ($('spinner')) {
 	Ajax.Responders.register({
@@ -299,11 +300,21 @@ Streamlined.Enumerations = {
 }
 
 Streamlined.QuickAdd = {
+  initialize: function() {
+    $$(".sl_quick_add_link").each((function(el) {
+      var link = el.parentNode.attributes["href"];
+	    if (link) {
+		    Event.observe(el, "click", (function() {
+          this.open(link);
+		    }).bind(this));
+  		}
+    }).bind(this));
+  },
 	open: function(url) {
-		Streamlined.Windows.open_local_window_from_url('', url, 'Quick Add');
+		Streamlined.Windows.open_local_window_from_url('', url, 'quick_add');
 	},
 	close: function() {
-		Windows.close('show_win_Quick Add');
+		Windows.close('show_win_quick_add');
 	}
 }
 
