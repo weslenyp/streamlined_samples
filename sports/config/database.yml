@@ -4,6 +4,7 @@ development:
   username: root
   password:
   host: localhost
+  socket: /tmp/mysql.sock
 
 test:
   adapter: mysql
@@ -11,6 +12,7 @@ test:
   username: root
   password:
   host: localhost
+  socket: /tmp/mysql.sock
 
 production:
   adapter: mysql
@@ -18,3 +20,4 @@ production:
   username: root
   password: 
   host: localhost
+  socket: /tmp/mysql.sock
