@@ -54,11 +54,13 @@ class ManageTeamsTest < Test::Unit::TestCase
   existing_record_data_is [{:label => "Name", :value => "Spurs"}, 
                            {:label => "City", :value => "San Antonio"}]
   
-  updates_to_existing_record_data_are [{:label => "Name", :value => "Robisons"}]
+  updates_to_existing_record_data_are [{:label => "City", :value => "Chapel Hill"}]
   
   new_record_data_is [{:label => "Name", :value => "Wahoos"}, 
                       {:label => "City", :value => "Charlottesville"},
                       {:label => "Sport", :value => "Basketball", :input => :select}]
+  
+  new_record_header_is "Wahoos"
   
   existing_record_link_text_for_delete_is "Spurs"
 end
