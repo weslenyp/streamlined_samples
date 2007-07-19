@@ -7,5 +7,8 @@ module ApplicationHelper
       ["Players", { :controller => "players", :action => "index" }]
     ]
   end
-  
+
+#  def advanced_filtering
+#    true
+#  end  
 end
