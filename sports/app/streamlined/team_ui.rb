@@ -31,6 +31,7 @@ class TeamUI < Streamlined::UI
   user_columns  :name, { :html_options => { :class => "team_input_field" }, :link_to => {:action => 'show'}},
                 :city, { :html_options => { :class => "team_input_field", :size => 20 }},
                 :sport, { :create_only => true, :enumeration => Team::Sport::SPORTS },
+                :home_state, { :show_view => [:link], :edit_in_list => false },
                 :coach,
                 :players,
                 :personnel

@@ -1,0 +1,156 @@
+alabama:
+  id: 1
+  name: Alabama
+arizona:
+  id: 2
+  name: Arizona
+arkansas:
+  id: 3
+  name: Arkansas
+california:
+  id: 4
+  name: California
+colorado:
+  id: 5
+  name: Colorado
+connecticut:
+  id: 6
+  name: Connecticut
+delaware:
+  id: 7
+  name: Delaware
+district of columbia:
+  id: 8
+  name: District of Columbia
+florida:
+  id: 9
+  name: Florida
+georgia:
+  id: 10
+  name: Georgia
+idaho:
+  id: 11
+  name: Idaho
+illinois:
+  id: 12
+  name: Illinois
+indiana:
+  id: 13
+  name: Indiana
+iowa:
+  id: 14
+  name: Iowa
+kansas:
+  id: 15
+  name: Kansas
+kentucky:
+  id: 16
+  name: Kentucky
+louisiana:
+  id: 17
+  name: Louisiana
+maine:
+  id: 18
+  name: Maine
+maryland:
+  id: 19
+  name: Maryland
+massachusetts:
+  id: 20
+  name: Massachusetts
+michigan:
+  id: 21
+  name: Michigan
+minnesota:
+  id: 22
+  name: Minnesota
+mississippi:
+  id: 23
+  name: Mississippi
+missouri:
+  id: 24
+  name: Missouri
+montana:
+  id: 25
+  name: Montana
+nebraska:
+  id: 26
+  name: Nebraska
+nevada:
+  id: 27
+  name: Nevada
+new hampshire:
+  id: 28
+  name: New Hampshire
+new jersey:
+  id: 29
+  name: New Jersey
+new mexico:
+  id: 30
+  name: New Mexico
+new york:
+  id: 31
+  name: New York
+north_carolina:
+  id: 32
+  name: North Carolina
+north dakota:
+  id: 33
+  name: North Dakota
+ohio:
+  id: 34
+  name: Ohio
+oklahoma:
+  id: 35
+  name: Oklahoma
+oregon:
+  id: 36
+  name: Oregon
+pennsylvania:
+  id: 37
+  name: Pennsylvania
+rhode island:
+  id: 38
+  name: Rhode Island
+south carolina:
+  id: 39
+  name: South Carolina
+south dakota:
+  id: 40
+  name: South Dakota
+tennessee:
+  id: 41
+  name: Tennessee
+texas:
+  id: 42
+  name: Texas
+utah:
+  id: 43
+  name: Utah
+vermont:
+  id: 44
+  name: Vermont
+virginia:
+  id: 45
+  name: Virginia
+washington:
+  id: 46
+  name: Washington
+west virginia:
+  id: 47
+  name: West Virginia
+wisconsin:
+  id: 48
+  name: Wisconsin
+wyoming:
+  id: 49
+  name: Wyoming
+hawaii:
+  id: 50
+  name: Hawaii
+alaska:
+  id: 51
+  name: Alaska
+puerto rico:
+  id: 52
+  name: Puerto Rico
