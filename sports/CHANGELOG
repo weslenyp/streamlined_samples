@@ -1,3 +1,5 @@
+7/30/07 - Added ability to export as JSON in the list view (or via RESTful requests to the index action) [Jason Rudolph]
+
 7/18/07 - Added additional comments to the UI classes [Matthew Bass]
 
 7/18/07 - Added quick_delete_button declaration example to PlayerUI [Matthew Bass]
