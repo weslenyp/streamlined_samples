@@ -23,16 +23,21 @@ end
 # This process of inclusion will be automated at some point in the future.
 Team.class_eval { include TeamAdditions }
 
-# The UI class is the heart of Streamlined's declarative system. It enables you to control which
+# ui_for is the heart of Streamlined's declarative system. It enables you to control which
 # columns are displayed in various views, which buttons show up, whether or not columns are linked,
 # and so on. The wiki has a good overview of the declarations available to you.
 #
-class TeamUI < Streamlined::UI
+# Older versions of Streamlined used inheritance, e.g. TeamUI < Streamlined::UI.
+Streamlined.ui_for(Team) do
   user_columns  :name, { :html_options => { :class => "team_input_field" }, :link_to => {:action => 'show'}},
                 :city, { :html_options => { :class => "team_input_field", :size => 20 }},
                 :sport, { :create_only => true, :enumeration => Team::Sport::SPORTS },
+                :coach, 
+                         {
+                           :show_view => [:name, {:fields => [:first_name, :last_name]}],
+                           :edit_view => [:select, {:fields => [:first_name, :last_name]}],
+                         },
                 :home_state, { :show_view => [:link], :edit_in_list => false },
-                :coach,
                 :players,
                 :personnel
 end

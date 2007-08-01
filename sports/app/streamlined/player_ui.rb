@@ -3,5 +3,5 @@ class PlayerUI < Streamlined::UI
   quick_delete_button false    
                 
   # Only show the CSV and XML export links
-  exporters :csv, :xml         
+  # exporters :csv, :xml         
 end

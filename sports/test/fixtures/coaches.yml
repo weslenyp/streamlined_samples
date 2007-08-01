@@ -1,4 +1,5 @@
 popovich:
   id: 1
   team_id: 1
-  name: Greg Popovich
+  first_name: Greg
+  last_name: Popovich
