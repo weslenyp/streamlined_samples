@@ -16,4 +16,8 @@ module ApplicationHelper
 #  def advanced_filtering
 #    true
 #  end  
+
+#  def breadcrumb
+#    true
+#  end  
 end
