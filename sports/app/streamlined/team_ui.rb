@@ -39,5 +39,11 @@ Streamlined.ui_for(Team) do
                          },
                 :home_state, { :show_view => [:link], :edit_in_list => false },
                 :players,
-                :personnel
+                :personnel   
+
+  # If you'd like the list view to include a different set of columns from the other views, 
+  # you can do so via the #list_columns declaration as illustrated below.
+  # list_columns :name,
+  #              :city,      
+  #              :home_state         
 end
