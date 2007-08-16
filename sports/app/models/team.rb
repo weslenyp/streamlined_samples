@@ -1,5 +1,3 @@
-puts caller.join("\n")
-
 class Team < ActiveRecord::Base
   has_one :coach
   belongs_to :home_state
