@@ -17,7 +17,7 @@ module ApplicationHelper
 #    true
 #  end  
 
-#  def breadcrumb
-#    true
-#  end  
+  def breadcrumb
+    true
+  end  
 end
