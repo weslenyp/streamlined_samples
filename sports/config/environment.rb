@@ -53,7 +53,12 @@ end
 #   inflect.singular /^(ox)en/i, '\1'
 #   inflect.irregular 'person', 'people'
 #   inflect.uncountable %w( fish sheep )
-# end
+# end                                                       
+                                        
+# A more realistic use for display_format_for would be something like formatting currency
+Streamlined.display_format_for("Barkley") do |obj|
+  "His Royal Highness Sir Charles #{obj}"
+end
 
 # Add new mime types for use in respond_to blocks:
 # Mime::Type.register "text/richtext", :rtf

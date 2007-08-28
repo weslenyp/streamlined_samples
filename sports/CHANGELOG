@@ -1,3 +1,5 @@
+8/28/07 - Added example use of display_format_for in environment.rb [Jason Rudolph, Stuart Halloway]
+
 8/3/07 - Added breadcrumb declaration in application_helper.rb [Jason Rudolph, Matthew Bass]
 
 7/30/07 - Added customized export declaration in player_ui.rb to render export links only for CSV and XML [Jason Rudolph]
