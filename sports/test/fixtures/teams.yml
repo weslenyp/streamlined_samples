@@ -3,4 +3,13 @@ spurs:
   name: Spurs
   city: San Antonio
   sport: Basketball
-  home_state_id: 1
+  annual_sales: 820000
+  home_state_id: 42
+
+nuggets:
+  id: 2
+  name: Nuggets
+  city: Denver
+  sport: Basketball
+  home_state_id: 5
+  annual_sales: 500000

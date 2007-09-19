@@ -10,18 +10,28 @@
 #     end
 #   end
 #
-# Here, we're specifying an additional column called "personnel" that will
-# always display the static value 30.
-#
 module TeamAdditions 
+  # Here, we're specifying an additional column called "personnel" that displays
+  # the total number of people (players plus coach) on the team.
   def personnel
-    30
+    "#{players.size + 1} people"
+  end
+  
+  # The annual sales column is stored in the database as a decimal number. It should be
+  # formatted nicely in the view so we define an additional column for it here. We also
+  # set :human_name and :sort_column in the UI definition near the end of this file.
+  def formatted_annual_sales
+    number_to_currency(annual_sales, :precision => 0)
   end
 end
 
 # Streamlined currently requires that you manually include Additions modules in your model class.
-# This process of inclusion will be automated at some point in the future.
-Team.class_eval { include TeamAdditions }
+# This process of inclusion will be automated at some point in the future. You must also include
+# any Rails helpers your Addition methods might use.
+Team.class_eval do
+  include TeamAdditions
+  include ActionView::Helpers::NumberHelper
+end
 
 # ui_for is the heart of Streamlined's declarative system. It enables you to control which
 # columns are displayed in various views, which buttons show up, whether or not columns are linked,
@@ -39,7 +49,8 @@ Streamlined.ui_for(Team) do
                          },
                 :home_state, { :show_view => [:link], :edit_in_list => false },
                 :players,
-                :personnel, {:render_wrapper => :red_content}
+                :personnel, { :render_wrapper => :red_content },
+                :formatted_annual_sales, { :human_name => "Annual Sales", :sort_column => "annual_sales" }
 
   # If you'd like the list view to include a different set of columns from the other views, 
   # you can do so via the #list_columns declaration as illustrated below.

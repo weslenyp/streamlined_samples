@@ -1,3 +1,5 @@
+9/19/07 - Clarified "personnel" Addition example in team_ui.rb; added :sort_column example [Matthew Bass]
+
 8/28/07 - Added example use of display_format_for in environment.rb [Jason Rudolph, Stuart Halloway]
 
 8/3/07 - Added breadcrumb declaration in application_helper.rb [Jason Rudolph, Matthew Bass]
