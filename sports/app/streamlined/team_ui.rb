@@ -57,4 +57,9 @@ Streamlined.ui_for(Team) do
   # list_columns :name,
   #              :city,      
   #              :home_state         
+  edit_columns  :name,
+                :city,
+                :home_state,
+                :annual_sales
+
 end

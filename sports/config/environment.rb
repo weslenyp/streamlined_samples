@@ -58,8 +58,12 @@ end
 # A more realistic use for display_format_for would be something like formatting currency
 Streamlined.display_format_for("Barkley") do |obj|
   "His Royal Highness Sir Charles #{obj}"
+end                     
+# Don't show decimal places if they are zero                     
+Streamlined.edit_format_for(BigDecimal) do |obj|
+  obj.truncate == obj ? obj.to_i : obj
 end
-
+  
 # Add new mime types for use in respond_to blocks:
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register "application/x-mobile", :mobile
