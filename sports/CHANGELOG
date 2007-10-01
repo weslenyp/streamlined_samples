@@ -1,17 +1,19 @@
-9/19/07 - Clarified "personnel" Addition example in team_ui.rb; added :sort_column example [Matthew Bass]
+10/01/07 - Moved all controllers under admin namespace (more representative and better for debugging) [Jason Rudolph and Stu Halloway]
 
-8/28/07 - Added example use of display_format_for in environment.rb [Jason Rudolph, Stuart Halloway]
+09/19/07 - Clarified "personnel" Addition example in team_ui.rb; added :sort_column example [Matthew Bass]
 
-8/3/07 - Added breadcrumb declaration in application_helper.rb [Jason Rudolph, Matthew Bass]
+08/28/07 - Added example use of display_format_for in environment.rb [Jason Rudolph, Stuart Halloway]
 
-7/30/07 - Added customized export declaration in player_ui.rb to render export links only for CSV and XML [Jason Rudolph]
+08/3/07 - Added breadcrumb declaration in application_helper.rb [Jason Rudolph, Matthew Bass]
 
-7/30/07 - Added ability to export as JSON in the list view (or via RESTful requests to the index action) [Jason Rudolph]
+07/30/07 - Added customized export declaration in player_ui.rb to render export links only for CSV and XML [Jason Rudolph]
 
-7/18/07 - Added additional comments to the UI classes [Matthew Bass]
+07/30/07 - Added ability to export as JSON in the list view (or via RESTful requests to the index action) [Jason Rudolph]
 
-7/18/07 - Added quick_delete_button declaration example to PlayerUI [Matthew Bass]
+07/18/07 - Added additional comments to the UI classes [Matthew Bass]
 
-7/18/07 - Added render_filter example to CoachesController [Matthew Bass]
+07/18/07 - Added quick_delete_button declaration example to PlayerUI [Matthew Bass]
 
-7/18/07 - Created CHANGELOG, updated README [Matthew Bass]
+07/18/07 - Added render_filter example to CoachesController [Matthew Bass]
+
+07/18/07 - Created CHANGELOG, updated README [Matthew Bass]

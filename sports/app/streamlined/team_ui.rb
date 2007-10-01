@@ -48,7 +48,7 @@ Streamlined.ui_for(Team) do
                            :edit_view => [:select, {:fields => [:first_name, :last_name]}],
                          },
                 :home_state, { :show_view => [:link], :edit_in_list => false },
-                :players,
+                :players, {:edit_view => [:window]},
                 :personnel, { :render_wrapper => :red_content },
                 :formatted_annual_sales, { :human_name => "Annual Sales", :sort_column => "annual_sales" }
 
