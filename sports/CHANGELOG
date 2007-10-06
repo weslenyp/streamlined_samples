@@ -1,3 +1,5 @@
+10/06/07 - Copied fresh styling from latest version of Streamlined [Matthew Bass]
+
 10/01/07 - Moved all controllers under admin namespace (more representative and better for debugging) [Jason Rudolph and Stu Halloway]
 
 09/19/07 - Clarified "personnel" Addition example in team_ui.rb; added :sort_column example [Matthew Bass]

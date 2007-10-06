@@ -14,12 +14,11 @@
   <%= stylesheet_link_tag 'streamlined' %>
   <%= stylesheet_link_tag 'menu' %>
   <%= stylesheet_link_tag 'tabber' %>
-  <%= stylesheet_link_tag 'sports' %>
 </head>
 <body>
 	<div id="header">
 		<span id="branding"><%= streamlined_branding %></span>
-	  	<%= render(:partial => 'shared/streamlined/top_menu') %>
+	  	<div id="top_nav"><%= render(:partial => 'shared/streamlined/top_menu') %></div>
 	</div>
 	 <div id="left">
 	   <%= render(:partial => "shared/streamlined/side_menu")%>
