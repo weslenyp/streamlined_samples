@@ -1,15 +1,6 @@
 # Don't change this file. Configuration is done in config/environment.rb and config/environments/*.rb
 
-unless defined?(RAILS_ROOT)
-  root_path = File.join(File.dirname(__FILE__), '..')
-
-  unless RUBY_PLATFORM =~ /mswin32/
-    require 'pathname'
-    root_path = Pathname.new(root_path).cleanpath(true).to_s
-  end
-
-  RAILS_ROOT = root_path
-end
+RAILS_ROOT = "#{File.dirname(__FILE__)}/.." unless defined?(RAILS_ROOT)
 
 unless defined?(Rails::Initializer)
   if File.directory?("#{RAILS_ROOT}/vendor/rails")
@@ -22,8 +13,7 @@ unless defined?(Rails::Initializer)
     rails_gem_version = $1
 
     if version = defined?(RAILS_GEM_VERSION) ? RAILS_GEM_VERSION : rails_gem_version
-      # Asking for 1.1.6 will give you 1.1.6.5206, if available -- makes it easier to use beta gems
-      rails_gem = Gem.cache.search('rails', "~>#{version}.0").sort_by { |g| g.version.version }.last
+      rails_gem = Gem.cache.search('rails', "=#{version}.0").sort_by { |g| g.version.version }.last
 
       if rails_gem
         gem "rails", "=#{rails_gem.version.version}"
