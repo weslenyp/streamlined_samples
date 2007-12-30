@@ -3,3 +3,11 @@ popovich:
   team_id: 1
   first_name: Greg
   last_name: Popovich
+holmgren:
+  id: 2
+  first_name: Mike
+  last_name: Holmgren
+dikta:
+  id: 3
+  first_name: Mike
+  last_name: Dikta
