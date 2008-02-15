@@ -1,0 +1,13 @@
+<h1>Add Helper Demo</h1>
+
+<table>
+<% @mhm.ancestors.each do |mod| %> 
+  <tr>
+    <td><%= mod.to_s %></td>
+    <td><%= mod.name %></td>
+    <td><%= mod.object_id %></td>
+  </tr>
+<% end %>
+</table>
+
+<p><%= self.methods.sort.join(", ") %></p>

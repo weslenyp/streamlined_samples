@@ -9,13 +9,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 8) do
+ActiveRecord::Schema.define(:version => 9) do
 
   create_table "coaches", :force => true do |t|
     t.integer "team_id"
     t.string  "first_name"
     t.string  "last_name"
     t.string  "middle_name"
+  end
+
+  create_table "fantasy_teams", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fantasy_teams_players", :force => true do |t|
+    t.integer "fantasy_team_id"
+    t.integer "player_id"
   end
 
   create_table "home_states", :force => true do |t|

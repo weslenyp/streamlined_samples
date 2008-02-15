@@ -9,7 +9,9 @@ module ApplicationHelper
       ["Teams", { :controller => "teams", :action => "index" }],
       ["Coaches", { :controller => "coaches", :action => "index" }],
       ["Players", { :controller => "players", :action => "index" }],
-      ["Home States", { :controller => "home_states", :action => "index"}]
+      ["Home States", { :controller => "home_states", :action => "index"}],
+      ["Fantasy Teams", { :controller => "fantasy_teams", :action => "index" }]
+      
     ]
   end
 

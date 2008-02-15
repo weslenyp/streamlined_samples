@@ -13,8 +13,8 @@
 if (ENV['RAILS_ENV'] == 'development')
   # Windows doesn't have 'uname', so rescue false
   ::MAC_OS_X = (`uname`.chomp == "Darwin") rescue false
-  require 'textmate_footnotes'
-  require 'textmate_initialize'
-  
-  require 'textmate_backtracer' if ::MAC_OS_X
+  # require 'textmate_footnotes'
+  # require 'textmate_initialize'
+  # 
+  # require 'textmate_backtracer' if ::MAC_OS_X
 end
