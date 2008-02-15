@@ -60,6 +60,7 @@ Streamlined.ui_for(Team) do
   edit_columns  :name,
                 :city,
                 :home_state,
-                :annual_sales
+                :annual_sales,
+                :players
 
 end
