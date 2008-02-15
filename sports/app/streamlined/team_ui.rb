@@ -61,6 +61,7 @@ Streamlined.ui_for(Team) do
                 :city,
                 :home_state,
                 :annual_sales,
+                :coach,
                 :players
 
 end
