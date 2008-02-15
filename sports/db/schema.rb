@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 10) do
+ActiveRecord::Schema.define(:version => 8) do
 
   create_table "coaches", :force => true do |t|
     t.integer "team_id"
@@ -43,12 +43,6 @@ ActiveRecord::Schema.define(:version => 10) do
     t.string  "sport"
     t.integer "home_state_id"
     t.decimal "annual_sales",  :precision => 8, :scale => 2
-  end
-
-  create_table "users", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
   end
 
 end
