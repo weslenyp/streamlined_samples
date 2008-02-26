@@ -13,6 +13,30 @@ describe 'Relevance::Tarantula::Crawler#transform_url' do
   end
 end
 
+describe 'Relevance::Tarantula::Crawler log grabbing' do
+  it "returns nil if no grabber is specified" do
+    crawler = Crawler.new
+    crawler.grab_log!.should == nil
+  end
+  
+  it "returns grabber.grab if grabber is specified" do
+    crawler = Crawler.new
+    crawler.log_grabber = stub(:grab! => "fake log entry")
+    crawler.grab_log!.should == "fake log entry"
+  end
+end
+
+describe 'Relevance::Tarantula::Crawler interruption' do
+  it 'catches interruption and writes the partial report' do
+    crawler = Crawler.new
+    crawler.stubs(:queue_link)
+    crawler.stubs(:do_crawl).raises(Interrupt)
+    crawler.expects(:report_results)
+    $stderr.expects(:puts).with("CTRL-C")
+    crawler.crawl
+  end
+end
+
 describe 'Relevance::Tarantula::Crawler#crawl' do
   it 'queues the first url, does crawl, and then reports results' do
     crawler = Crawler.new
@@ -67,7 +91,31 @@ describe 'Relevance::Tarantula::Crawler#report_results' do
   end
 end
 
-describe 'Relevance::Tarantula::Crawler#crawl_queued_forms' do
+describe 'Relevance::Tarantula::Crawler#crawling' do
+
+  it "converts ActiveRecord::RecordNotFound into a 404" do
+    (proxy = stub_everything).expects(:send).raises(ActiveRecord::RecordNotFound)
+    crawler = Crawler.new
+    crawler.proxy = proxy
+    response = crawler.crawl_form stub_everything(:method => nil)
+    response.code.should == "404"
+    response.content_type.should == "text/plain"
+    response.body.should == "ActiveRecord::RecordNotFound"
+  end
+
+  it "does four things with each link: get, log, handle, and blip" do
+    crawler = Crawler.new
+    crawler.proxy = stub
+    response = stub(:code => "200")
+    crawler.links_to_crawl = [:stub_1, :stub_2]
+    crawler.proxy.expects(:get).returns(response).times(2)
+    crawler.expects(:log).times(2)
+    crawler.expects(:handle_link_results).times(2)
+    crawler.expects(:blip).times(2)
+    crawler.crawl_queued_links
+    crawler.links_to_crawl.should == []
+  end
+    
   it "invokes queued forms, logs responses, and calls handlers" do
     crawler = Crawler.new
     crawler.forms_to_crawl << stub_everything(:method => "get", 
@@ -97,6 +145,31 @@ describe 'Crawler blip' do
 end
 
 describe 'Relevance::Tarantula::Crawler' do
+  it "is finished when the links and forms are crawled" do
+    crawler = Crawler.new
+    crawler.finished?.should == true
+  end
+
+  it "isn't finished when links remain" do
+    crawler = Crawler.new
+    crawler.links_to_crawl = [:stub_link]
+    crawler.finished?.should == false
+  end
+
+  it "isn't finished when links remain" do
+    crawler = Crawler.new
+    crawler.forms_to_crawl = [:stub_form]
+    crawler.finished?.should == false
+  end
+  
+  it "crawls links and forms again and again until finished?==true" do
+    crawler = Crawler.new
+    crawler.expects(:finished?).times(3).returns(false, false, true)
+    crawler.expects(:crawl_queued_links).times(2)
+    crawler.expects(:crawl_queued_forms).times(2)
+    crawler.do_crawl
+  end
+  
   it "reports errors to stderr and then raises" do
     crawler = Crawler.new
     crawler.failures << stub(:code => "404", :url => "/uh-oh")
@@ -166,3 +239,21 @@ describe 'Relevance::Tarantula::Crawler' do
   
 end
 
+describe "allow_nnn_for" do
+  it "installs result as a response_code_handler" do
+    crawler = Crawler.new
+    crawler.response_code_handler.should == Result
+  end
+  
+  it "delegates to the response_code_handler" do
+    crawler = Crawler.new
+    (response_code_handler = mock).expects(:allow_404_for).with(:stub)
+    crawler.response_code_handler = response_code_handler
+    crawler.allow_404_for(:stub)
+  end
+  
+  it "chains up to super for method_missing" do
+    crawler = Crawler.new
+    lambda{crawler.foo}.should.raise(NoMethodError)
+  end
+end

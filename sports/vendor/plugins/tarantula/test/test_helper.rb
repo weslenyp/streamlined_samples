@@ -1,14 +1,16 @@
 basedir = File.dirname(__FILE__)
 $:.unshift "#{basedir}/../lib"
+require 'rubygems'
 gem 'ruby-debug'
 gem 'test-spec'
 gem 'activesupport'
 gem 'actionpack'
+gem 'activerecord'
 
-require 'rubygems'
 require 'test/spec'
 require 'mocha'
 require 'ruby-debug'
+require 'activerecord'
 require 'relevance/tarantula'
 
 # needed for html-scanner, grr
