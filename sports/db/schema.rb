@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 10) do
     t.string  "name"
     t.string  "city"
     t.string  "sport"
+    t.integer "ranking"
     t.integer "home_state_id"
     t.decimal "annual_sales",  :precision => 8, :scale => 2
   end

@@ -5,6 +5,7 @@ spurs:
   sport: Basketball
   annual_sales: 820000
   home_state_id: 42
+  ranking: 5
 
 nuggets:
   id: 2
@@ -13,3 +14,4 @@ nuggets:
   sport: Basketball
   home_state_id: 5
   annual_sales: 500000
+  ranking: 3
