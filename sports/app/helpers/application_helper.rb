@@ -15,11 +15,12 @@ module ApplicationHelper
     ]
   end
 
+# Uncomment to turn on advanced filtering
 #  def advanced_filtering
 #    true
 #  end  
 
-  def breadcrumb
+  def streamlined_breadcrumb
     true
   end  
 end
