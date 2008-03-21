@@ -42,7 +42,7 @@ Streamlined.ui_for(Team) do
   user_columns  :name, { :html_options => { :class => "team_input_field" }, :link_to => {:action => 'show'}},
                 :city, { :html_options => { :class => "team_input_field", :size => 20 }},
                 :sport, { :create_only => true, :enumeration => Team::Sport::SPORTS },
-                :ranking, { :edit_in_list => false, :enumeration => Team::Ranking::RANKINGS },
+                :ranking, { :enumeration => Team::Ranking::RANKINGS },
                 :coach, 
                          {
                            :show_view => [:name, {:fields => [:first_name, :last_name]}],
