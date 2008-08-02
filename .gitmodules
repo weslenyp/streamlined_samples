@@ -1,0 +1,3 @@
+[submodule "sports/vendor/plugins/streamlined"]
+	path = sports/vendor/plugins/streamlined
+	url = git://github.com/relevance/streamlined.git
